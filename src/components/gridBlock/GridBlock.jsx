@@ -11,9 +11,6 @@ const GridBlock = (props) => {
             {rowItem.map((_, rowElementIndex) => {
               const id = `${rowIndex + 1}-${rowElementIndex + 1}`;
               const isHovered = hoveredElements.includes(id);
-              //   const prevEl =
-              //     hoveredElements[hoveredElements.length - 1] ===
-              //       rowElementIndex && hoveredElements[hoveredElements.length];
 
               return (
                 <div
@@ -26,6 +23,9 @@ const GridBlock = (props) => {
                     return onHover((prev) => {
                       return prev.filter((el) => el !== id);
                     });
+                  }}
+                  onMouseLeave={() => {
+                    // maybe we need to add remove last element hovered when we return to element which has already existed
                   }}
                   key={id}
                 />
