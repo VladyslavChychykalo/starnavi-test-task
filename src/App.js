@@ -8,15 +8,19 @@ import useFetch from "./utils/useFetch";
 import styles from "./App.module.css";
 
 function App() {
-  const [currentLevel, setLevel] = useState({});
+  const [currentLevel, setLevel] = useState(null);
+  const [currentOption, setCurrentOption] = useState(null);
   const [hoveredElements, setHoveredElements] = useState([]);
 
-  const { data } = useFetch({
+  const { data, loading } = useFetch({
     link: "https://60816d9073292b0017cdd833.mockapi.io/modes",
   });
 
   useEffect(() => {
-    if (data?.[0]) return setLevel(data[0]);
+    if (data?.[0]) {
+      setLevel(data[0]);
+      setCurrentOption(data[0]);
+    }
   }, [data]);
 
   const arrayOfBlocks = useMemo(() => {
@@ -31,34 +35,47 @@ function App() {
   }, [currentLevel]);
 
   const handleChangeLevel = (data) => {
-    setHoveredElements([]);
-    setLevel(data);
+    // setHoveredElements([]);
+    setCurrentOption(data);
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div>
-        <div className={styles.headerBlock}>
-          <Select
-            options={data}
-            currentOption={currentLevel}
-            setCurrentOption={handleChangeLevel}
-            className={styles.selectWrapper}
-          />
-          <Button>Start</Button>
+    <>
+      {loading ? (
+        <h3 className={styles.loadingStatus}>Please wait loading ...</h3>
+      ) : (
+        <div className={styles.wrapper}>
+          <div>
+            <div className={styles.headerBlock}>
+              <Select
+                options={data}
+                currentOption={currentOption}
+                setCurrentOption={handleChangeLevel}
+                className={styles.selectWrapper}
+              />
+              <Button
+                onClick={() => {
+                  setLevel(currentOption);
+                  setHoveredElements([]);
+                }}
+              >
+                Start
+              </Button>
+            </div>
+            <GridBlock
+              hoveredElements={hoveredElements}
+              onHover={setHoveredElements}
+              arrayOfBlocks={arrayOfBlocks}
+            />
+          </div>
+          <div>
+            {!!hoveredElements.length && (
+              <InfoBlock hoveredElements={hoveredElements} />
+            )}
+          </div>
         </div>
-        <GridBlock
-          hoveredElements={hoveredElements}
-          onHover={setHoveredElements}
-          arrayOfBlocks={arrayOfBlocks}
-        />
-      </div>
-      <div>
-        {!!hoveredElements.length && (
-          <InfoBlock hoveredElements={hoveredElements} />
-        )}
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

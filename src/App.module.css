@@ -11,3 +11,7 @@
 .selectWrapper {
   margin-right: 10px;
 }
+
+.loadingStatus {
+  font-size: 32px;
+}
