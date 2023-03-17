@@ -1,0 +1,19 @@
+.wrapper {
+  margin-top: 30px;
+}
+
+.block {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+
+.block.active {
+  background-color: #00a8f4;
+}
+
+.rowItem {
+  display: flex;
+  height: 100%;
+  flex: 1;
+}

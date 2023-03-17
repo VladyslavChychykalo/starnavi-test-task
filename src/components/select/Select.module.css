@@ -1,0 +1,66 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.customSelectWrapper {
+  height: 30px;
+  border: 1px solid #1b4332;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 0 10px 0 10px; */
+  /* padding-left: 10px;
+  padding-right: 0px; */
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+}
+
+.selectOption {
+  letter-spacing: 3.2px;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.optionsContainerList {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  border: 1px solid #1b4332;
+  border-top: 0px;
+  left: 0;
+  right: 0;
+}
+
+.optionsContainerItem {
+  border-bottom: 1px solid #1b4332;
+  height: 30px;
+  /* padding: 0 10px 0 10px; */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #1b4332;
+  background-color: #fff;
+}
+
+.optionsContainerItem:hover {
+  background-color: #efe8e1;
+}
+
+.optionsContainerItem:last-child {
+  border-bottom: 0px;
+}
+
+.optionsContainerItem.actvieOptio {
+  background-color: #efe8e1;
+}
+
+.arrowIconRight {
+  padding-right: 10px;
+}
+
+.arrowIconLeft {
+  padding-left: 10px;
+}

@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  column-gap: 30px;
+}
+
+.headerBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectWrapper {
+  margin-right: 10px;
+}

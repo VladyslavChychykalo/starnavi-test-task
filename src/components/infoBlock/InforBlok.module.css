@@ -1,0 +1,22 @@
+.infoList {
+  list-style: none;
+  width: max-content;
+  overflow: scroll;
+  max-height: 600px;
+}
+
+.infoItem {
+  background-color: #fbf8e3;
+  width: auto;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.infoItem:last-child {
+  margin-bottom: 0px;
+}
+
+.titleInfo {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
