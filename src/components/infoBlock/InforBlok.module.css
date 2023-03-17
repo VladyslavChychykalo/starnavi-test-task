@@ -10,6 +10,8 @@
   width: auto;
   padding: 15px;
   margin-bottom: 10px;
+  color: #a28a5f;
+  border-radius: 5px;
 }
 
 .infoItem:last-child {
